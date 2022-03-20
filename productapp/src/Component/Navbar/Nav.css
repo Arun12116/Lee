@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+} 
+
+li{
+    list-style: none;
+} 
+
+.main{
+    width:100%;
+    height:15vh;
+    background-color: rgb(65, 50, 100);
+    /* background-color: brown; */
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.nav{
+display:flex;
+justify-content:space-around;
+align-items: center;
+color: white;
+padding:20px;
+flex-wrap: wrap;
+text-transform: uppercase;
+cursor: pointer;
+
+}
+.logo{
+    display: flex;
+    height:3rem;
+    width:5rem;
+    color:whitesmoke;
+    background-color: rgb(27, 27, 26);
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+.usericon{
+    color:whitesmoke;
+    width:4rem;
+    height:2rem;
+    cursor:pointer
+}
+.CartIcons{
+    color:whitesmoke;
+    width:4rem;
+    height:2rem;
+    cursor:pointer
+}
+.number-of-cart{
+    position: relative;
+    right: 5.55rem;
+    bottom: 22px;
+   width: 34px;
+
+   
+
+}
+input{
+    width:23rem;
+    height:2.5rem;
+    border:2px solid whitesmoke;
+    border-radius: 5px;
+    
+}

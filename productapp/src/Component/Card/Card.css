@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Cards{
+display: flex;
+
+}
+.Card{
+
+    width:25vw;
+    height:55vh;
+    background-color: rgb(125, 210, 216);
+border-radius: 20px;
+box-shadow:0px 0px 5px rgb(223, 245, 247);
+margin:40px;
+margin-top:8rem;
+overflow: hidden;
+
+}
+.Card:hover {
+    transform: scale(1.02);
+
+}
+h1{
+    font-size: 13px;
+    margin: 10px;
+    
+}
+.btnn{
+    display: flex;
+    justify-content: space-around;
+margin: 40px;
+
+}
+.btn{
+   margin-left: 30px;
+    width:8vw;
+    height:5vh;
+    border-radius: 50px;
+    border:none;
+    background-color: orangered;
+    color:whitesmoke;
+    cursor:pointer;
+    font-size: 15px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow:0px 0px 5px whitesmoke
+}
+
+.btn1{
+   
+    width:8vw;
+    height:5vh;
+    border-radius: 50px;
+    border:none;
+    background-color: orangered;
+    color:whitesmoke;
+    cursor:pointer;
+    font-size: 15px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow:0px 0px 5px whitesmoke
+} 
+
+
+.show-dada{
+
+    font-size: 13px;
+    width:25vw;
+    height:55vh;
+    background-color: blueviolet;
+   align-items: center;
+   justify-content: center;
+}
+.img{
+        width: 22vw;
+        height: 25vh;
+   
+     
+
+}
