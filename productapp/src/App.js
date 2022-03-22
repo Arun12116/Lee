@@ -14,13 +14,12 @@ function App() {
 const [show,setShow]=useState(false)
 //Store the Data in the Array form
   const [store, setStore] = useState([]);
-
+//counter add to cart
   const [state, setstate] = useState(0);
   function updatestate(items) {
     setStore(store.concat({ img: items.image, price: items.price , category:items.category}))
     setstate(state + 1)
   }
-  console.log(setStore);
   const [product, setProduct] = useState([]);
   console.log(product)
 
