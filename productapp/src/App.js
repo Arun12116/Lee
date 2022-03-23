@@ -11,17 +11,31 @@ import { useState, useEffect } from "react"
 
 
 function App() {
-const [show,setShow]=useState(false)
+// const [show,setShow]=useState(false)
 //Store the Data in the Array form
-  const [store, setStore] = useState([]);
-//counter add to cart
-  const [state, setstate] = useState(0);
-  function updatestate(items) {
-    setStore(store.concat({ img: items.image, price: items.price , category:items.category}))
-    setstate(state + 1)
+  const [cartItems, setCartItems] = useState([]);
+// console.log(cartItems);
+const onAdd=(product)=>{
+  
+  const exist=cartItems.find(x => x.id === product.id);
+  if(exist){
+    setCartItems(cartItems.map(x => x.id === product.id ?{
+      ...exist, qty: exist.qty+1}:x));
+    
+
   }
+  else{
+    setCartItems([...cartItems,{...product, qty: 1}])
+  }
+};
+  // const [state, setstate] = useState(0);
+  // function updatestate() {
+  
+  //   setstate(state + 1)
+  // }
+  //product items
   const [product, setProduct] = useState([]);
-  console.log(product)
+  // console.log(product)
 
   const userDetails = async () => {
     const response = await fetch("https://fakestoreapi.com/products")
@@ -34,14 +48,14 @@ const [show,setShow]=useState(false)
     userDetails();
   }, [])
 
-const click=()=>{
-  setShow(true)
-}
+// const click=()=>{
+//   setShow(true)
+// }
 
   return (
 
     <>
-      <Nav st={state}  click={click}/>
+      <Nav />
       <div className='Map'>
 
         {
@@ -51,7 +65,7 @@ const click=()=>{
               <div>
 
 
-          <Card category={items.category} decri={items.description} id={items.id}img={items.image} price={items.price} rating={items.rating} title={items.title} upadate={() => updatestate(items)}/ >
+          <Card category={items.category} decri={items.description} id={items.id}img={items.image} price={items.price} rating={items.rating} title={items.title} onAdd={onAdd}/ >
 
               </div>
 
@@ -62,12 +76,10 @@ const click=()=>{
       
       </div>
       
-      {show ? (
-        <Cart store={store}/>
+  
+        <Cart cartItems={cartItems} onAdd={onAdd}/>
         
-      ) : (
-      ""
-      )};
+      
 
      
 
