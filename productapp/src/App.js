@@ -9,32 +9,49 @@ import { useState, useEffect } from "react"
 
 
 
-
 function App() {
-// const [show,setShow]=useState(false)
-//Store the Data in the Array form
+  // const [show,setShow]=useState(false)
+  //Store the Data in the Array form
   const [cartItems, setCartItems] = useState([]);
-// console.log(cartItems);
-const onAdd=(product)=>{
-  
-  const exist=cartItems.find(x => x.id === product.id);
-  if(exist){
-    setCartItems(cartItems.map(x => x.id === product.id ?{
-      ...exist, qty: exist.qty+1}:x));
-    
+  // console.log(cartItems);
+  const onAdd = (product) => {
+    // console.log(product);
+    console.log(cartItems);
+    const exist = cartItems.find(item => item.id === product.id);  // bag :2 , shirt :3 , pant: 1 // product: pant 
+    console.log(exist);  // pant
+    if (exist) {
+      setCartItems(cartItems.map(item => item.id === product.id ? {
+        ...exist, qty: exist.qty + 1
+      } : item));
 
+
+    }
+    else {
+      setCartItems([...cartItems, { ...product, qty: 1 }])
+    }
+  };
+
+  const onRemove = (product) => {
+    const exist = cartItems.find((item) => item.id === product.id);
+    if (exist.qty == 1) {
+      setCartItems(cartItems.filter((x) =>
+        x.id !== product.id))
+    }
+    else {
+      setCartItems(cartItems.map((item) => item.id === product.id ? {
+        ...exist, qty: exist.qty - 1
+      } : item));
+
+    }
   }
-  else{
-    setCartItems([...cartItems,{...product, qty: 1}])
-  }
-};
+
   // const [state, setstate] = useState(0);
   // function updatestate() {
-  
+
   //   setstate(state + 1)
   // }
   //product items
-  const [product, setProduct] = useState([]);
+  const [products, setProduct] = useState([]);
   // console.log(product)
 
   const userDetails = async () => {
@@ -48,24 +65,24 @@ const onAdd=(product)=>{
     userDetails();
   }, [])
 
-// const click=()=>{
-//   setShow(true)
-// }
+  // const click=()=>{
+  //   setShow(true)
+  // }
 
   return (
 
     <>
-      <Nav />
+      <Nav countCartitems={cartItems.length}/>
       <div className='Map'>
 
         {
-          product.map((items) => {
+          products.map((items) => {
 
             return (
               <div>
 
 
-          <Card category={items.category} decri={items.description} id={items.id}img={items.image} price={items.price} rating={items.rating} title={items.title} onAdd={onAdd}/ >
+                <Card category={items.category} decri={items.description} id={items.id} img={items.image} price={items.price} rating={items.rating} title={items.title} onAdd={onAdd} product={items} />
 
               </div>
 
@@ -73,17 +90,17 @@ const onAdd=(product)=>{
             )
           })
         }
-      
+
       </div>
-      
-  
-        <Cart cartItems={cartItems} onAdd={onAdd}/>
-        
-      
 
-     
 
-     
+      <Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />
+
+
+
+
+
+
 
     </>
   );

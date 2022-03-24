@@ -7,11 +7,11 @@
     width: 20px;
     height: 20px;
 }
-.contanier{
+.container{
  width:15vw;
  height:40vh;
  border: 2px solid rgb(22, 21, 21);
-background-color: rgb(189, 93, 93);
+background-color: rgb(20, 20, 20);
 color: aliceblue;
 position: relative;
 left:70rem;
@@ -49,4 +49,17 @@ overflow:scroll;
     width: 20px;
     height: 20px;
     align-items: center;
+}
+.addbtn{
+    width: 2vw;
+    height: 3vh;
+    margin: 10px;
+    background-color: green;
+    color: white;
+}
+.subbtn{
+    width: 2vw;
+    height: 3vh;
+    background-color: red;
+    color: white;
 }

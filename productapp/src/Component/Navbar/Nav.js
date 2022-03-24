@@ -20,8 +20,8 @@ const Nav = (props) => {
                         </input>
                     </form>
                     <FaUser className='usericon' />
+                    
                    <FaCartPlus className="CartIcons" onClick={props.click}/>
-                   <h2 className="number-of-cart">{props.st}</h2>
                 </div>
                 
             </div>
